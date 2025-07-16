@@ -1,16 +1,365 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Kasra Seydi - ERROR</title>
-<body style="background-color: #1d2026;">
-      </div></header>
-    <section>
-      <div>
-        <h1 style="color: aliceblue;font-family: arial;text-align: center;" >This Page doesn't Exist!</h1>
-      <h2 style="color: aliceblue;font-family: arial;text-align: center;" >Return to The <a style="text-decoration: underline;color: #0e87f9;" href="https://kasraseydi.github.io/">Hub</a></h2>
-      <p style="color: #2e323b;text-align: center;">ERR TYPE: 404_NOINFO</p>
-      </div>
-    </section> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Not Found</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <style>
+    :root {
+      --bg-dark: rgb(32, 36, 43);
+      --text-primary: rgb(65, 133, 244);
+      --bg-light: rgb(30, 33, 40);
+      --accent: rgb(14, 135, 249);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 8rem;
+      animation: glitch 1s infinite;
+      color: var(--text-primary);
+      margin-bottom: 50px;
+    }
+
+
+    .subtext {
+      font-size: 1.5rem;
+      color: var(--accent);
+      min-height: 2.5em;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    #refresh {
+      width: 33px;
+      height: 33px;
+      cursor: pointer;
+    }
+
+    .home-btn {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .home-btn:hover {
+      background-color: var(--accent);
+      color: var(--bg-dark);
+    }
+
+    .tip-container {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 360px;
+    }
+
+    .tip-box {
+      flex-grow: 1;
+      font-size: 1rem;
+      color: var(--accent);
+      background-color: var(--bg-light);
+      padding: 15px 20px;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      min-height: 3.2em;
+      line-height: 1.3;
+      user-select: none;
+      word-wrap: break-word;
+    }
+
+    /* The span inside tip-box to hold text and animate opacity */
+    #tipText {
+      display: inline-block;
+      transition: opacity 0.4s ease;
+      opacity: 1;
+    }
+
+    .tip-refresh {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--accent);
+      user-select: none;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 2px solid var(--accent);
+      background-color: transparent;
+      border: 0;
+      transform: scale(1);
+      transition: 0.2s ease-in-out;
+    }
+
+    .tip-refresh:hover {
+    text-shadow: 0px 0px 15px #0c79df;
+    transform: scale(1.2);
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 blue; }
+      20% { text-shadow: -2px 0 red, 2px 0 blue; }
+      40% { text-shadow: 2px 2px red, -2px -2px blue; }
+      60% { text-shadow: -2px -2px red, 2px 2px blue; }
+      80% { text-shadow: 0 0 red, 0 0 blue; }
+      100% { text-shadow: 2px 0 red, -2px 0 blue; }
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 5rem;
+        margin-bottom: 30px;
+      }
+
+      .subtext {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+        padding: 0 5px;
+      }
+
+      .home-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+        margin-bottom: 8px;
+      }
+
+      .tip-container {
+        position: static;
+        max-width: 100%;
+        width: auto;
+        margin-top: 20px;
+        padding: 0 10px;
+        justify-content: flex-start;
+      }
+
+      .tip-box {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+        min-height: auto;
+        border-left-width: 4px;
+        border-radius: 5px;
+      }
+
+      .tip-refresh {
+        font-size: 1.3rem;
+        padding: 4px 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>404</h1>
+  <p class="subtext" id="subtext"></p>
+  <a class="home-btn" href="/">Back to Home</a>
+
+  <div class="tip-container">
+    <div class="tip-box" id="tipBox"><span id="tipText">Loading tip...</span></div>
+    <button aria-label="Next tip" title="Next tip" class="tip-refresh" id="refreshTipBtn"><div id="refresh"></div></button>
+  </div>
+
+  
+  
+<script>
+  const animation = lottie.loadAnimation({
+    container: document.getElementById('refresh'),
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'https://kasraseydi.github.io/lottie/rfrshtips.json'
+  });
+
+  document.getElementById('refresh').addEventListener('click', () => {
+    animation.stop();
+    animation.play();
+  });
+</script>
+
+
+  <script>
+    const tips = [
+      "Tip: Always keep backups. Especially of your jokes.",
+      "JS Joke: Why did the developer go broke? Because he used up all his cache.",
+      "404 Tip: Sometimes the best route is Home.",
+      "Fun fact: This page is cooler than most real ones.",
+      "Pro tip: Semicolons are optional. Until they aren’t.",
+      "404 = File Not Found. Like that missing semicolon.",
+      "Debugging: Being the detective in a crime movie where you're also the murderer.",
+      "JS Joke: I told my code a joke. It didn’t catch the exception.",
+      "Tip: Don’t trust atoms. They make up everything — just like this URL.",
+      "HINT: Maybe the page is hiding behind a console.log?",
+      "404 Error: The cake is a lie.",
+      "JS Joke: undefined is not a function, but this page is not found either.",
+      "404 Advice: It's not lost, it's exploring.",
+      "Did you try turning it off and on again?",
+      "Tip: The only thing infinite is console.log() in a loop.",
+      "Joke: Why did the async function fail? Because it didn’t await its destiny.",
+      "Reminder: Commit before you rage quit.",
+      "404 Detected: Syntax error in reality.",
+      "Fun fact: This is a high-effort void.",
+      "404 Dev Note: This is what happens when you forget a route.",
+      "404: Not the page you’re looking for, but hey, nice try.",
+      "Server says: Nah, not today.",
+      "Lost in the web wilderness. Send help.",
+      "Error: Page temporarily swallowed by a black hole.",
+      "404: Someone unplugged the internet. Again.",
+      "Why don’t programmers like nature? Too many bugs.",
+      "Warning: The page you seek is hiding behind layers of CSS.",
+      "This page’s GPS coordinates are somewhere in cyberspace.",
+      "Keep calm and refresh the page.",
+      "404 - We’re not lost, just exploring alternate dimensions.",
+      "Page missing, but your enthusiasm is intact!",
+      "Have you tried the secret Konami code here?",
+      "404: The internet gremlins are at it again."
+    ];
+
+    const subtexts = [
+      "This page drifted into the void...",
+      "Oops... you're off the map.",
+      "Looks like the page took a coffee break.",
+      "You’ve reached the dark side of the URL.",
+      "404 reality not found. Try reloading existence.",
+      "Nothing to see here... just some lost bits.",
+      "The page you're looking for is on vacation.",
+      "Looks like someone deleted the internet.",
+      "It’s not you, it’s the page.",
+      "This link is so broken it’s an NFT now.",
+      "If this page was a cat, it would be Schrödinger’s.",
+      "Well, this is awkward.",
+      "This isn't the page you're looking for. Move along.",
+      "Oops! This page tripped over a semicolon.",
+      "Abort, Retry, Fail? This page did all three.",
+      "This page has gone 127.0.0.1",
+      "Like your socks in the dryer — gone forever.",
+      "Requesting reality... timeout.",
+      "Welcome to the void of broken links.",
+      "404: All hope abandoned here.",
+      "It went out for coffee and never came back.",
+      "This page doesn't even go here!",
+      "URL not found. Maybe it's hiding behind a firewall?",
+      "This was supposed to be a cool page. Oops.",
+      "The router blinked and this page disappeared.",
+      "404: Welcome to the glitch dimension.",
+      "Page lost in hyperspace. No signal.",
+      "Connection lost. Send more packets.",
+      "404: Reality interrupted.",
+      "Error 404: The Force is not with this page.",
+      "Oops! Looks like the matrix glitched.",
+      "This page took a detour through the wormhole.",
+      "The server took a nap. Please wait.",
+      "404: Digital tumbleweed rolling by.",
+      "This page is on a coffee run. Back soon.",
+      "404: Lost in translation.",
+      "Not all who wander are lost, except this page.",
+      "This page prefers to stay anonymous."
+    ];
+
+    const chars = "!@#$%^&*()_+{}[]<>?,./|\\-=~1234567890ABCDEFGHIJKALMNOP";
+    const subtextEl = document.getElementById("subtext");
+    const tipTextEl = document.getElementById("tipText");
+    const refreshBtn = document.getElementById("refreshTipBtn");
+
+    let lastTip = -1;
+    let lastSub = -1;
+    let scrambleTimer = null;
+    let tipFadeTimeout = null;
+    let tipInterval = null;
+
+    function getNewRandom(arr, lastIndex) {
+      let index;
+      do {
+        index = Math.floor(Math.random() * arr.length);
+      } while (index === lastIndex && arr.length > 1);
+      return index;
+    }
+
+    function scrambleText(finalText) {
+      clearInterval(scrambleTimer);
+      let revealIndex = 0;
+
+      scrambleTimer = setInterval(() => {
+        let result = "";
+        for (let i = 0; i < finalText.length; i++) {
+          result += i < revealIndex ? finalText[i] : chars[Math.floor(Math.random() * chars.length)];
+        }
+        subtextEl.textContent = result;
+        revealIndex++;
+        if (revealIndex > finalText.length) {
+          clearInterval(scrambleTimer);
+        }
+      }, 20.5);
+    }
+
+    function showNewSubtext() {
+      lastSub = getNewRandom(subtexts, lastSub);
+      scrambleText(subtexts[lastSub]);
+    }
+
+    function fadeTipTo(text) {
+      if (tipFadeTimeout) clearTimeout(tipFadeTimeout);
+
+      tipTextEl.style.opacity = 0;
+
+      tipFadeTimeout = setTimeout(() => {
+        tipTextEl.textContent = text;
+        tipTextEl.style.opacity = 1;
+      }, 400);
+    }
+
+    function showNewTip() {
+      lastTip = getNewRandom(tips, lastTip);
+      fadeTipTo(tips[lastTip]);
+    }
+
+    function resetTipInterval() {
+      clearInterval(tipInterval);
+      tipInterval = setInterval(showNewTip, 30000);
+    }
+
+    refreshBtn.addEventListener("click", () => {
+      showNewTip();
+      resetTipInterval();
+    });
+
+    // Initialize on load
+    showNewSubtext();
+    setTimeout(() => {
+    showNewTip();
+    tipInterval = setInterval(showNewTip, 30000);
+    }, 550); // 500ms delay — tweak as needed
+  </script>
 </body>
 </html>
