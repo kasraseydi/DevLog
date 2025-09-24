@@ -26,59 +26,16 @@
     <header>
         <a href="/"><img height="90" width="115" style="position: fixed;margin-left: -190px;" src="https://kasraseydi.github.io/favicons/favicon.svg" alt="Logo"></a>
         <h1>Kasra Seydi</h1>
-        <div id="loginModal" class="modal hidden">
-            <div class="modal-content">
-                <h2>Login to Manage Posts</h2>
-                <input id="loginEmail" type="email" placeholder="Enter your email" />
-                <input id="loginPassword" type="password" placeholder="Enter your password" />
-                <button onclick="login()">Login</button>
-
-            </div>
-        </div>
     </header>
 <div class="content">
+    <p id="top">top</p>
     <section class="log-container">
         <!-- Log Entries will load here -->
+        <a href="#top" class="back">Back to the top ↑</a>
     </section>
 </div>
     <footer>
-        <!-- Post Button -->
-        <button id="newPostBtn" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" style="margin-bottom: -2px;" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-</svg> New Post</button>
-        
-                <!-- Login Button -->
-                <button id="loginBtn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
-  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-  <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
-</svg> Login</button>
-                <!-- Logout Button -->
-                <button id="logoutBtn" class="hidden"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-fill-dash" viewBox="0 0 16 16">
-  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M11 12h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1m0-7a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-  <path d="M2 13c0 1 1 1 1 1h5.256A4.5 4.5 0 0 1 8 12.5a4.5 4.5 0 0 1 1.544-3.393Q8.844 9.002 8 9c-5 0-6 3-6 4"/>
-</svg> Logout</button>
-       
-        <div id="postModal" class="modal hidden">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Create a New Post</h2>
-                <div id="markdownToolbar" class="toolbar">
-             <button type="button" onclick="insertMarkdown('**', '**')"><b>Bold</b></button>
-             <button type="button" onclick="insertMarkdown('_', '_')"><i>Italic</i></button>
-             <button type="button" onclick="insertMarkdown('[', '](url)')">Link</button>
-             <button type="button" onclick="insertMarkdown('![', '](image-url)')">Image</button>
-             <button type="button" onclick="insertMarkdown('# ', '')">Header1</button>
-             <button type="button" onclick="insertMarkdown('## ', '')">Header2</button>
-             <button type="button" onclick="insertMarkdown('- ', '')">•</button>
-                </div>
-                <input id="postTitle" type="text" placeholder="Enter post title..." />
-                <textarea id="postContent" placeholder="Write your update here..."></textarea>
-                <button onclick="submitPost()">Post</button>
-
-            </div>
-        </div>
-
-        <p>Built with passion 🚀 and love 💙</p>
+        <p id="footertext">Built with passion 🚀 and love 💙</p>
     </footer>
 <div id="loadingOverlay">
 <h1>Loading Posts<span class="dots"></span></h1>
@@ -87,7 +44,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Custom JavaScript -->
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
 
