@@ -451,7 +451,7 @@ const App = {
         await PerformanceUtils.measurePerformance('Load Posts', async () => {
           await this.loadPosts(isLoggedIn);
           console.log(
-            '%cUSER portal Innitiated,Welcome',
+            '%cUSER portal initiated,Welcome',
             'color: #1df709ff; font-weight: bolder; font-size: xx-large;'
           );
         });
