@@ -1,0 +1,438 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+body {
+    background-color: #1d2026;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9%;
+    background-color: #20242b;
+    padding: 20px;
+    z-index: 1000;
+}
+
+h1 {
+    color: #0e87f9;
+}
+
+.log-container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+.log-entry {
+    background-color: #242830;
+    border-left: 4px solid #0967be;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.log-entry:hover {
+    box-shadow: 0px 0px 15px #0c79df;
+    transform: scale(1.02);
+}
+
+.log-entry h2 {
+    color: #0e87f9;
+}
+
+.date {
+    font-size: 0.8em;
+    color: #b0b0b0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background-color: #20242b;
+    padding: 15px;
+    z-index: 100;
+}
+
+
+.content {
+    position: absolute;
+    top: 13%;         /* height of the header */
+    bottom: 13%;      /* height of the footer */
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+
+#newPostBtn {
+    background-color: #0e87f9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+#newPostBtn:hover {
+  box-shadow: 0px 0px 10px #0c79df;
+  scroll-behavior: smooth;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #21242c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #0c79df;
+    width: 300px;
+}
+
+.deleteBtn {
+    background-color: #ff5757;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.deleteBtn:hover {
+  box-shadow: 0px 0px 10px #ff5757;
+}
+
+#loginBtn, #logoutBtn {
+    background-color: #0e87f9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+#loginBtn:hover, #logoutBtn:hover {
+  box-shadow: 0px 0px 10px #0c79df;
+}
+.editTitleInput, .editContentTextarea {
+  width: 95%;
+  margin: 0.5em 0;
+  font-size: 1em;
+  padding: 0.5em;
+}
+
+.cancelEditBtn {
+ background-color: #ff5757;
+ transition: 0.3s ease-in-out;
+}
+
+.cancelEditBtn:hover {
+  box-shadow: 0px 0px 10px #ff5757;
+}
+
+.hidden {
+    display: none;
+}
+
+a {
+	color: #0e87f9;
+	background-color:transparent;
+  }
+
+
+.close {
+    cursor: pointer;
+    font-size: 22px;
+    color: #b0b0b0;
+}
+
+.close:hover {
+    color: #ff5757;
+}
+
+textarea {
+    width: 90%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #0e87f9;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    box-shadow: 0px 0px 10px #0c79df;
+}
+
+#loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1d2026;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000;
+  color: #4fa3d1;
+  font-size: 2em;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+#loadingOverlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.editBtn {
+  background-color: #0b9b1e;
+  transition: 0.3s ease-in-out;
+}
+
+.editBtn:hover {
+  box-shadow: 0px 0px 10px #22bd36;
+}
+
+.editTitleInput, .editContentTextarea {
+  width: 100%;
+  margin: 10px 0;
+  font-family: monospace, monospace; /* Markdown editing feels better with monospace */
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.editContentTextarea {
+  height: 200px;
+  resize: vertical;
+}
+
+.dots::after {
+  content: "";
+  display: inline-block;
+  animation: dots 0.8s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0% { content: ""; }
+  33% { content: "."; }
+  66% { content: ".."; }
+  100% { content: "..."; }
+}
+
+.toolbar {
+
+
+  margin-bottom: 0.5rem;
+
+
+}
+
+.toolbar button {
+  margin-right: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: #0e87f9;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.toolbar button:hover {
+  box-shadow: 0px 0px 10px #0c79df;
+}
+
+.log-container ul,
+.log-container ol {
+  list-style: disc inside; /* Or: 'decimal inside' for numbers */
+  margin-left: 1.5rem;    /* Indent list a bit for readability */
+  padding-left: 0;        /* Remove extra padding */
+}
+
+.log-container li {
+  margin-bottom: 0.3rem;  /* Space between list items if needed */
+}
+
+.br {
+  font-family: Arial, sans-serif;
+}
+
+.likeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  position: relative;
+  transition: transform 0.2s ease;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 10;
+}
+
+.likeBtn:disabled {
+  cursor: not-allowed;
+
+}
+
+.likeBtn:disabled:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px #d12d2d);
+  box-shadow: none;
+}
+
+.likecounter:not(.liked) {
+    color: #ffffff;
+}
+
+.likecounter.liked {
+    color: #ff4d4d;
+}
+
+.likecounter.liked::after {
+    color: #ff4d4d;
+}
+
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #525252;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 2px rgba(94, 94, 94, 0.5));
+  transition: fill 0.2s ease, transform 0.2s ease;
+}
+
+/* Glow on hover */
+.likeBtn:not(.liked):hover .heart-icon {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 6px #858585);
+  box-shadow: none;
+}
+
+/* When liked */
+.likeBtn.liked .heart-icon {
+  fill: #ff4d4d;
+  stroke: #ff4d4d;
+  animation: pop 0.3s ease;
+}
+
+.likeBtn:hover {
+    box-shadow: none;
+}
+/* Floating hearts */
+.likeBtn.liked .floating-hearts {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.likeBtn.liked .floating-hearts span {
+  position: absolute;
+  font-size: 12px;
+  animation: floatHeart 0.8s ease-out forwards;
+  color: #ff4d4d;
+  opacity: 0;
+}
+
+.likeBtn.liked .floating-hearts span:nth-child(1) {
+  left: -10px;
+  animation-delay: 0s;
+}
+.likeBtn.liked .floating-hearts span:nth-child(2) {
+  left: 0;
+  animation-delay: 0.1s;
+}
+.likeBtn.liked .floating-hearts span:nth-child(3) {
+  left: 10px;
+  animation-delay: 0.2s;
+}
+
+@keyframes pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+#footertext {
+  margin-top: 17px;
+}
+
+#top {
+  color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: -40px;
+}
+
+.back {
+  margin-top: 5px;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  padding: 2px;
+  border: solid 3px;
+}
+.back:hover {
+  scale: 1.1;
+  padding: 3px;
+}
