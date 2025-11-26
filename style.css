@@ -27,6 +27,22 @@ header {
     z-index: 1000;
 }
 
+.header-logo-image {
+	animation: glow-unglow infinite 5s;
+}
+
+@keyframes glow-unglow {
+	0% {
+		filter: drop-shadow(0 7px 7px rgba(255, 255, 255, 0.5));
+	}
+	50% {
+		filter: drop-shadow(0 7px 7px rgba(255, 255, 255, 0));
+	}
+	100% {
+		filter: drop-shadow(0 7px 7px rgba(255, 255, 255, 0.5));
+	}
+}
+
 h1 {
     color: #0e87f9;
 }
