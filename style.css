@@ -7,6 +7,8 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 html, body {
@@ -86,7 +88,6 @@ footer {
     z-index: 100;
 }
 
-
 .content {
     position: absolute;
     top: 13%;         /* height of the header */
@@ -154,8 +155,7 @@ button:hover {
 
 #loadingOverlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   width: 100vw;
   height: 100vh;
   background-color: #1d2026;

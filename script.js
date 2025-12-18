@@ -1,19 +1,3 @@
-/**
- * Blog Post Management System with Supabase Integration
- * Polished and optimized version with performance enhancements and advanced error handling
- * 
- * Features:
- * - Modular architecture with clean separation of concerns
- * - Advanced error handling with retry mechanisms and exponential backoff
- * - Performance optimizations including auto-save and debouncing
- * - Network status monitoring and offline support
- * - Global error catching and user-friendly error messages
- * - Auto-save functionality for crash recovery
- * - Performance monitoring and timing logs
- * - XSS prevention and input validation
- * - Comprehensive JSDoc documentation
- */
-
 // Configuration
 const CONFIG = {
   SUPABASE_URL: 'https://sckrkyjhxcaihcqjbble.supabase.co',
